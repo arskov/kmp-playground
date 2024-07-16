@@ -44,19 +44,39 @@ tasks.wrapper {
 val libraryName = "exports"
 
 kotlin {
-    mingwX64 {
+//    mingwX64 {
+//        binaries {
+//            sharedLib {
+//                baseName = libraryName
+//            }
+//        }
+//    }
+//
+//    linuxArm64 {
+//        binaries {
+//            sharedLib {
+//                baseName = libraryName
+//            }
+//        }
+//    }
+
+    macosArm64 {
         binaries {
             sharedLib {
                 baseName = libraryName
             }
         }
     }
-    
+
     sourceSets {
         all {
             languageSettings.apply {
                 optIn("kotlin.RequiresOptIn")
                 optIn("kotlin.js.ExperimentalJsExport")
+                optIn("kotlinx.cinterop.ExperimentalForeignApi")
+                optIn("kotlin.ExperimentalUnsignedTypes")
+                optIn("kotlin.ExperimentalStdlibApi")
+                optIn("kotlin.native.ExperimentalNativeApi")
             }
         }
 
@@ -72,11 +92,11 @@ kotlin {
             }
         }
 
-        val mingwX64Main by getting {
-            dependencies {
-                api(kotlin("stdlib"))
-            }
-        }
+//        val mingwX64Main by getting {
+//            dependencies {
+//                api(kotlin("stdlib"))
+//            }
+//        }
     }
 
 }

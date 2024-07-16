@@ -17,12 +17,16 @@ class SampleClass {
         this.bytes = bytes
     }
 
-    fun sampleArrayOfBytes(): Array<Byte> {
-        return Array<Byte>(16) { 0xFE.toByte() }
-    }
-
     fun sampleByteArray(): ByteArray {
         return ByteArray(16) { 0xCA.toByte() }
+    }
+
+    fun sampleArrayList(): ArrayList<Byte> {
+        return ArrayList()
+    }
+
+    fun sampleArrayOfBytes(): Array<Byte> {
+        return Array<Byte>(16) { 0xFE.toByte() }
     }
 
     fun printByteArray(bytes: ByteArray) {
@@ -36,4 +40,5 @@ class SampleClass {
     fun sampleString(): String {
         return "Sample String"
     }
+
 }
